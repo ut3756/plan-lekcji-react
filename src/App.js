@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Naglowek from './Naglowek';
+import Wiersz from './Wiersz';
+
+const godziny = [
+  {nr:1, godzina:"8:00-8:45", pn:"PEN IM 323",
+    wt:"EE PJ 325", sr:"J. pol MO 315",
+    cz:"zaj. wych SE 102", pt:"biz i zarz SO 314"},
+  {nr:2, godzina:"8:50-9:35", pn:"PEN IM 323",
+    wt:"EE PJ 325", sr:"J. pol MO 315",
+    cz:"zaj. wych SE 102", pt:"biz i zarz SO 314"},
+] ;
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>plan lekcji</h1>
+      <table>
+        <Naglowek />
+        {godziny.map((e) => 
+          <Wiersz key={e.nr} dane={e} />
+        )}
+      </table>
     </div>
   );
 }
